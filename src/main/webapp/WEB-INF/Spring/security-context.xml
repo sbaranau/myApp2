@@ -4,8 +4,11 @@
              xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/security
-	http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
+    <http pattern="/userfiles/**" security="none"/>
+    <http pattern="static**" security="none"/>
+    <http pattern="security" security="none"/>
     <http auto-config="true">
         <intercept-url pattern="/Home.do" access="ROLE_USER, ROLE_ANONYMOUS"/>
         <intercept-url pattern="/ViewAd.do" access="ROLE_USER, ROLE_ANONYMOUS"/>
@@ -15,9 +18,6 @@
         <intercept-url pattern="/LoadPhoto.do" access="ROLE_USER"/>
         <intercept-url pattern="/LoginHead.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
         <intercept-url pattern="/Reg.do" access="ROLE_ANONYMOUS"/>
-        <intercept-url pattern="resources" filters="none"/>
-        <intercept-url pattern="/userfiles/*" filters="none"/>
-        <intercept-url pattern="/static**" filters="none"/>
         <intercept-url pattern="/ViewUser.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
         <intercept-url pattern="/Profile.do" access="ROLE_USER"/>
 

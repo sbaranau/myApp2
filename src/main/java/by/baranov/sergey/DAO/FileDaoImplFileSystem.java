@@ -5,6 +5,7 @@ import by.baranov.sergey.Entity.UserFile;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.io.*;
@@ -12,6 +13,7 @@ import java.io.*;
 /**
  *TODO
  */
+@Component
 @Repository
 public class FileDaoImplFileSystem implements FileDao{
 

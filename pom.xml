@@ -9,10 +9,11 @@
   <packaging>war</packaging>
   <version>1.0.0-BUILD-SNAPSHOT</version>
   <properties>
-    <java-version>1.6</java-version>
-    <org.springframework-version>3.0.5.RELEASE</org.springframework-version>
+    <java-version>1.7</java-version>
+    <org.springframework-version>4.0.6.RELEASE</org.springframework-version>
+    <org.spring-security-version>3.2.5.RELEASE</org.spring-security-version>
     <org.springframework.roo-version>1.0.2.RELEASE</org.springframework.roo-version>
-    <org.aspectj-version>1.6.9</org.aspectj-version>
+    <org.aspectj-version>1.8.2</org.aspectj-version>
     <org.slf4j-version>1.5.10</org.slf4j-version>
   </properties>
 
@@ -41,34 +42,40 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
-      <version>${org.springframework-version}</version>
+      <version>${org.spring-security-version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
-      <version>${org.springframework-version}</version>
+      <version>${org.spring-security-version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-core</artifactId>
-      <version>${org.springframework-version}</version>
+      <version>${org.spring-security-version}</version>
     </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>${org.springframework-version}</version>
+      </dependency>
 
 
-    <dependency>
+
+      <dependency>
       <groupId>javax.persistence</groupId>
       <artifactId>persistence-api</artifactId>
-      <version>1.0</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>3.3.2.GA</version>
+      <version>4.3.6.Final</version>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-annotations</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.5.6-Final</version>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -180,7 +187,13 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-    <!-- Hibernate Validator -->
+      <dependency>
+          <groupId>javax.transaction</groupId>
+          <artifactId>jta</artifactId>
+          <version>1.1</version>
+      </dependency>
+
+      <!-- Hibernate Validator -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
@@ -290,14 +303,9 @@
             <dependency>
                 <groupId>javax.mail</groupId>
                 <artifactId>mail</artifactId>
-                <version>1.4</version>
+                <version>1.4.7</version>
             </dependency>
 
-          <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${org.aspectj-version}</version>
-          </dependency>
           <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjtools</artifactId>
