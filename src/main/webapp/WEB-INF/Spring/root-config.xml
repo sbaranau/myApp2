@@ -1,0 +1,27 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Включаем опцию использования конфигурационных аннотаций (@Annotation-based configuration)-->
+
+    <context:annotation-config/>
+
+    <!-- Определяем папки, в которых будем автоматически искать бины-компоненты (@Component, @service)  -->
+    <context:component-scan base-package="by.baranov.sergey.DAO"/>
+    <context:component-scan base-package="by.baranov.sergey.Service"/>
+    <context:component-scan base-package="by.baranov.sergey.Email"/>
+
+
+    <!-- Файл с настройками ресурсов для работы с данными (Data Access Resources) -->
+    <import resource="Data.xml"/>
+    <import resource="security-context.xml"/>
+    <import resource="location-servlet.xml"/>
+    <import resource="mail-config.xml"/>
+    <import resource="upload-config.xml"/>
+    <import resource="properties-config.xml"/>
+
+</beans>

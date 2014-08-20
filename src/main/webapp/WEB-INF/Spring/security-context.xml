@@ -1,0 +1,46 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+
+    <http auto-config="true">
+        <intercept-url pattern="/Home.do" access="ROLE_USER, ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/ViewAd.do" access="ROLE_USER, ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/Create.do" access="ROLE_USER"/>
+        <intercept-url pattern="/UpdateAd.do" access="ROLE_USER"/>
+        <intercept-url pattern="/Successfully.do" access="ROLE_USER"/>
+        <intercept-url pattern="/LoadPhoto.do" access="ROLE_USER"/>
+        <intercept-url pattern="/LoginHead.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/Reg.do" access="ROLE_ANONYMOUS"/>
+        <intercept-url pattern="resources" filters="none"/>
+        <intercept-url pattern="/userfiles/*" filters="none"/>
+        <intercept-url pattern="/static**" filters="none"/>
+        <intercept-url pattern="/ViewUser.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/Profile.do" access="ROLE_USER"/>
+
+        <form-login login-page="/Login.jsp" default-target-url="/Home.do"
+                    authentication-failure-url="/loginfailed.do"/>
+
+        <logout logout-url="/Logout.do" logout-success-url="/Home.do" invalidate-session="true"/>
+
+        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
+
+        <remember-me/>
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSource"
+
+                               users-by-username-query="select username,password, enabled from login where username=?"
+
+                               authorities-by-username-query="select l.username, r.role from login l, role r where l.login_id = r.login_id and l.username =? and enabled=1"
+
+                    />
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>

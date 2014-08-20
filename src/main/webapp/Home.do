@@ -1,0 +1,1 @@
+<!-- This file should be empty, this is fix for Spring MVC (or jetty?) bug -->

@@ -1,0 +1,97 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #43f7c4;
+}
+
+#wrapper {
+    position: relative;
+    width: 860px;
+
+    padding: 10px 20px;
+    margin: auto;
+    background: #FFF;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+}
+
+.error {
+    color: #ff0000;
+}
+
+.errorblock {
+    color: #000;
+    background-color: #ffEEEE;
+    border: 3px solid #ff0000;
+    padding: 8px;
+    margin: 16px;
+}
+
+.clear {
+    clear: both;
+    height: 0px; /* нужна нулевая высота */
+    display: block;
+    background: #FF0000;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+#title {
+    margin-bottom: 0px;
+}
+
+#table {
+    width: 850px; /* ширина таблицы */
+    border-collapse: collapse;
+}
+
+#table tr {
+    align: center;
+    height: 45px;
+}
+
+#table tr.grey {
+    background-color: #cccccc;
+}
+
+#table td {
+    border: 1px solid #333;
+    padding: 2px;
+    text-align: center
+}
+
+#table td.buttom, #table td.empty {
+    border: none;
+    padding-left: 10px; /* отступ кнопки от таблицы */
+    background: none;
+    background-color: #ffffff;
+    width: 50px;
+}
+
+input.button_edit {
+    border: 1px solid #333;
+    background: rgba(223, 227, 216, 0.62);
+    border-radius: 15px;
+    padding: 2px 15px;
+}
+
+.vcenter {
+    min-height: 12em;
+    display: table-cell;
+    vertical-align: middle;
+}
