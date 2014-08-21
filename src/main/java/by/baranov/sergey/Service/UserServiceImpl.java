@@ -2,17 +2,11 @@ package by.baranov.sergey.Service;
 
 import by.baranov.sergey.DAO.UserDao;
 import by.baranov.sergey.Entity.User;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  *TODO
@@ -23,7 +17,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserDao userDao;
 
-    private static final Log LOG = LogFactory.getLog(UserServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
 
 
     @Transactional

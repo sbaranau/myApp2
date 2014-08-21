@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -93,6 +92,14 @@ public class UserDaoImpl implements UserDao {
         User user = findById((long)id);
         user.setEnabled(1);
         return update(user);
+    }
+
+    @Override
+    public boolean updateRoleById(int id) {
+        LOG.debug("UpdateRoleById dao ");
+        Role role = sessionFactory.getCurrentSession().get()
+        sessionFactory.getCurrentSession().
+        return false;
     }
 
 }
