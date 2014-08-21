@@ -4,8 +4,8 @@ import by.baranov.sergey.Email.MailService;
 import by.baranov.sergey.Entity.User;
 import by.baranov.sergey.Service.AdvService;
 import by.baranov.sergey.Service.UserService;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSendException;
 import org.springframework.stereotype.Controller;
@@ -33,7 +33,7 @@ public class ProfileController {
     @Autowired
     MailService mailService;
 
-    private static final Log LOG = LogFactory.getLog(ProfileController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ProfileController.class);
 
     User user;
 

@@ -5,8 +5,8 @@ import by.baranov.sergey.Email.MailService;
 import by.baranov.sergey.Service.UserService;
 import by.baranov.sergey.UploadItem;
 import by.baranov.sergey.UserVar;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.MailSendException;
@@ -43,7 +43,7 @@ public class RegController {
     @Qualifier("org.springframework.security.authenticationManager")
     private AuthenticationManager authenticationManager;
 
-    private static final Log LOG = LogFactory.getLog(RegController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RegController.class);
 
 
     @RequestMapping(value = "/Reg.do", method = RequestMethod.GET)
@@ -103,7 +103,7 @@ public class RegController {
                     return "Reg";
                 }
 
-                Long userId = userService.add(userVar.getName(), userVar.getPassword(), userVar.getEmail(), avatar, file.getBytes(), "ROLE_USER");
+                Long userId = userService.add(userVar.getName(), userVar.getPassword(), userVar.getEmail(), avatar, file.getBytes(), "ROLE_ANONYMOUS");
 
                 //if successful creating user
                 if (userId != 0) {
@@ -114,6 +114,7 @@ public class RegController {
                                 "Hello dear" + userVar.getName() + "\n\n Your registration at myApp successful! \n " +
                                 "Your login - " + userVar.getName() +
                                 "\n your password -" + userVar.getPassword() +
+                                "\n your can edit after confirm email" +
                                 "\n <a href=\"http://localhost:8080/myApp/confirm.do?id=" + userId +
                                 "\">Confirm you e-mail</a>");
                     } catch (MailSendException exception) {

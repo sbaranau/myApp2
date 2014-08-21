@@ -4,8 +4,8 @@ import by.baranov.sergey.Entity.Adv;
 import by.baranov.sergey.Entity.User;
 import by.baranov.sergey.Service.AdvService;
 import by.baranov.sergey.UploadItem;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +29,7 @@ public class AddController {
     @Autowired
     private AdvService advService;
 
-    private static final Log LOG = LogFactory.getLog(AddController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AddController.class);
 
     @RequestMapping(value = "/Create.do", method = RequestMethod.GET)
     public String showCreateForm(ModelMap model) {

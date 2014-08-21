@@ -1,7 +1,7 @@
 package by.baranov.sergey.WebCont;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class RootController {
-    private static final Log LOG = LogFactory.getLog(LoginController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
     @RequestMapping(value = "/")
     public String root(Model model) {
        LOG.debug("Root.controller");

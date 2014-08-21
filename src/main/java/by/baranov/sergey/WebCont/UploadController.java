@@ -4,8 +4,8 @@ import by.baranov.sergey.Entity.Adv;
 import by.baranov.sergey.Service.AdvService;
 import by.baranov.sergey.Service.UserFileService;
 import by.baranov.sergey.UploadItem;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,7 +31,7 @@ public class UploadController {
 
     private static final int FILE_MAX_SIZE = 1048576;    //set file max size in byte
 
-    private static final Log LOG = LogFactory.getLog(UploadController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UploadController.class);
 
     @RequestMapping(value = "/LoadPhoto.do", method = RequestMethod.POST)
     public String showForm(UploadItem uploadItem, ModelMap model, HttpServletRequest request) throws IOException {

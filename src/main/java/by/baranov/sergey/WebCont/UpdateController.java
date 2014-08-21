@@ -4,8 +4,8 @@ import by.baranov.sergey.Entity.Adv;
 import by.baranov.sergey.Service.AdvService;
 import by.baranov.sergey.Service.UserFileService;
 import by.baranov.sergey.UploadItem;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +33,7 @@ public class UpdateController {
     Adv adv;
     String[] pictures;
 
-    private static final Log LOG = LogFactory.getLog(UpdateController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UpdateController.class);
 
     @RequestMapping(value = "/UpdateAd.do", method = RequestMethod.GET)
     public final String update(HttpServletRequest request, ModelMap model)

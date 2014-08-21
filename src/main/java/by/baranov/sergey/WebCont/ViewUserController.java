@@ -2,8 +2,8 @@ package by.baranov.sergey.WebCont;
 
 import by.baranov.sergey.Entity.User;
 import by.baranov.sergey.Service.UserService;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,7 +19,7 @@ public class ViewUserController {
     @Autowired
     private UserService userService;
 
-    private static final Log LOG = LogFactory.getLog(ViewUserController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ViewUserController.class);
 
     @RequestMapping(value = "/ViewUser.do")
     public final String update(HttpServletRequest request, ModelMap model)

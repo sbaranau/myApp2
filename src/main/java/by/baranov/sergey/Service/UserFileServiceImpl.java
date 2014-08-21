@@ -3,8 +3,8 @@ package by.baranov.sergey.Service;
 import by.baranov.sergey.DAO.FileDao;
 import by.baranov.sergey.Entity.Adv;
 import by.baranov.sergey.Entity.UserFile;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class UserFileServiceImpl implements UserFileService {
     @Autowired
     AdvService advService;
 
-    private static final Log LOG = LogFactory.getLog(UserFileServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserFileServiceImpl.class);
 
     /**
      * upload user's files in folder on filesystem, full path: userfiles    /  user name  /    adv's ad

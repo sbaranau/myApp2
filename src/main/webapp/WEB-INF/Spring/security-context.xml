@@ -18,7 +18,9 @@
         <intercept-url pattern="/LoadPhoto.do" access="ROLE_USER"/>
         <intercept-url pattern="/LoginHead.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
         <intercept-url pattern="/Reg.do" access="ROLE_ANONYMOUS"/>
-        <intercept-url pattern="/ViewUser.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/ViewUser.do" access="ROLE_USER"/>
+        <intercept-url pattern="/ViewAd.do" access="ROLE_USER, ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/Error.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
         <intercept-url pattern="/Profile.do" access="ROLE_USER"/>
 
         <form-login login-page="/Login.jsp" default-target-url="/Home.do"

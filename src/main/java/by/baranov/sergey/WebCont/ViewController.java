@@ -2,8 +2,8 @@ package by.baranov.sergey.WebCont;
 
 import by.baranov.sergey.Entity.Adv;
 import by.baranov.sergey.Service.AdvService;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +22,7 @@ public class ViewController {
     @Autowired
     private AdvService advService;
 
-    private static final Log LOG = LogFactory.getLog(ViewController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ViewController.class);
 
     @RequestMapping(value = "/ViewAd.do")
     public final String viewAdvForm(HttpServletRequest request, HttpServletResponse response, Model model)
