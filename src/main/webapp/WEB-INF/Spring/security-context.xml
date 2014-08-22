@@ -14,7 +14,8 @@
         <intercept-url pattern="/ViewAd.do" access="ROLE_USER, ROLE_ANONYMOUS"/>
         <intercept-url pattern="/Create.do" access="ROLE_USER"/>
         <intercept-url pattern="/UpdateAd.do" access="ROLE_USER"/>
-        <intercept-url pattern="/Successfully.do" access="ROLE_USER, ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/Successfully.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
+        <intercept-url pattern="/Successfully" access="ROLE_USER, ROLE_ANONYMOUS"/>
         <intercept-url pattern="/LoadPhoto.do" access="ROLE_USER"/>
         <intercept-url pattern="/LoginHead.jsp" access="ROLE_USER, ROLE_ANONYMOUS"/>
         <intercept-url pattern="/Reg.do" access="ROLE_ANONYMOUS"/>
@@ -36,7 +37,7 @@
         <authentication-provider>
             <jdbc-user-service data-source-ref="dataSource"
 
-                               users-by-username-query="select username,password from login where username=?"
+                               users-by-username-query="select username,password,enabled from login where username=?"
 
                                authorities-by-username-query="select l.username, r.role from login l, role r where l.login_id = r.login_id and l.username =?"
 

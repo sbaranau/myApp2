@@ -87,19 +87,28 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean updateEnabledById(int id) {
+    public boolean updateEnabledById(Long id) {
         LOG.debug("UpdateUserById dao ");
-        User user = findById((long)id);
+        User user = findById((id));
         user.setEnabled(1);
         return update(user);
     }
 
     @Override
-    public boolean updateRoleById(int id) {
+    public boolean updateRoleById(Long id) {
         LOG.debug("UpdateRoleById dao ");
-        Role role = sessionFactory.getCurrentSession().get()
-        sessionFactory.getCurrentSession().
-        return false;
+        Role role = (Role)sessionFactory.getCurrentSession().createQuery
+                ("from Role where idLogin=:idLogin").setLong("idLogin", id).list().get(0);
+       // sessionFactory.openSession().delete(role);
+      //  sessionFactory.openSession().flush();
+        try {
+        role.setRole("ROLE_USER");
+        sessionFactory.getCurrentSession().update(role);
+        } catch (Exception ex) {
+            LOG.error(ex.getMessage());
+        }
+      //  sessionFactory.openSession().save(role);
+        return true;
     }
 
 }

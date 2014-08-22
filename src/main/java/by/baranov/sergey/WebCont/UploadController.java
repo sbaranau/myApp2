@@ -33,7 +33,7 @@ public class UploadController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UploadController.class);
 
-    @RequestMapping(value = "/LoadPhoto.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/LoadPhoto.do/{id}", method = RequestMethod.POST)
     public String showForm(UploadItem uploadItem, ModelMap model, HttpServletRequest request) throws IOException {
         LOG.debug("UploadPhoto Controller");
         HttpSession session = request.getSession();

@@ -45,10 +45,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean confirmEmail(int id) {
+    @Transactional
+    public boolean confirmEmail(String id) {
         LOG.debug("confirm email. User Service");
-        userDao.updateEnabledById(id);
-        return false;
+        Long userId =0L;
+        try {
+            userId = Long.parseLong(id);
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+       // userDao.updateEnabledById(userId);
+        userDao.updateRoleById(userId);
+        return true;
     }
 
 }

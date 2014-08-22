@@ -124,7 +124,7 @@ public class RegController {
 
                     //Set session attributes+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-                    HttpSession session = request.getSession(true);
+        /*            HttpSession session = request.getSession(true);
                     session.setAttribute("UserName", userVar.getName());
                     session.setAttribute("UserId", userId);
                     session.setAttribute("Avatar", avatar);
@@ -135,7 +135,7 @@ public class RegController {
                     token.setDetails(new WebAuthenticationDetails(request));
                     Authentication authenticatedUser = authenticationManager.authenticate(token);
 
-                    SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
+                    SecurityContextHolder.getContext().setAuthentication(authenticatedUser);*/
 
                     model.addAttribute("action", "registrated.");
                     return "Successfully";

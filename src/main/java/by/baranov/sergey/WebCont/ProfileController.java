@@ -56,7 +56,7 @@ public class ProfileController {
                 LOG.debug("UserId = " + session.getAttribute("UserId"));
             }
             idUser = Long.parseLong(String.valueOf(session.getAttribute("UserId")));
-            model.addAttribute("Back", ("Home.do?page=" + request.getParameter("page")).toString());
+            model.addAttribute("Back", "Home.do?page=" + request.getParameter("page"));
             this.user = userService.getProfileById(idUser);
 
         } catch (Exception exp) {

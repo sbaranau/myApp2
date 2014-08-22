@@ -2,8 +2,6 @@ package by.baranov.sergey.Service;
 
 import by.baranov.sergey.Entity.User;
 
-import java.io.IOException;
-
 /**
  *TODO
  */
@@ -18,6 +16,6 @@ public interface UserService {
 
     public boolean updateProfile(User user);
 
-    public boolean confirmEmail(int id);
+    public boolean confirmEmail(String id);
 
 }

@@ -15,7 +15,7 @@ public interface UserDao {
 
     public boolean update(User user);
 
-    public boolean updateEnabledById(int id);
+    public boolean updateEnabledById(Long id);
 
-    public boolean updateRoleById(int id);
+    public boolean updateRoleById(Long id);
 }
