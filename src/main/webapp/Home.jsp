@@ -46,14 +46,13 @@
             <span>${NextPage}</span>
 
         </div>
-        <a href="http://localhost:8080/myApp/confirm.do?id=8">Confirm you e-mail</a>
         <br/>
         <br/>
 
         <div>
             <table cellpadding="0" cellspacing="0" id="table">
                 <tr bgcolor="#778899">
-                    <td width="150px">
+                    <td width="180px">
                         <spring:message code="label.Date"/>
                     </td>
                     <td width="70em">
@@ -67,6 +66,9 @@
                     </td>
                     <td width="100em">
                         <spring:message code="label.User"/>
+                    </td>
+                    <td width="50em">
+                        <spring:message code="label.Comments"/>
                     </td>
                     <td width="30em">
                         <spring:message code="label.Foto"/>
@@ -113,6 +115,8 @@
                                 </c:otherwise>
                             </c:choose>
 
+                        </td>
+                        <td>
                         </td>
                         <td>
                             <c:if test="${parameter.picture ne null}">

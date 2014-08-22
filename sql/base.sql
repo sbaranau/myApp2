@@ -13,7 +13,6 @@
 -- Dumping database structure for mytestwork
 CREATE DATABASE IF NOT EXISTS `mytestwork` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `mytestwork`;
-
 CREATE TABLE adv
 (
   idapps INT NOT NULL AUTO_INCREMENT,
@@ -26,6 +25,13 @@ CREATE TABLE adv
   members_idmembers INT UNSIGNED NOT NULL,
   PRIMARY KEY (idapps, members_idmembers)
 );
+CREATE TABLE comment
+(
+  id_comment INT PRIMARY KEY NOT NULL,
+  text LONGTEXT,
+  id_user INT UNSIGNED NOT NULL,
+  id_adv INT NOT NULL
+);
 CREATE TABLE login
 (
   login_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -34,7 +40,8 @@ CREATE TABLE login
   enabled TINYINT NOT NULL,
   email VARCHAR(50) NOT NULL,
   avatar LONGTEXT,
-  picture LONGBLOB
+  picture LONGBLOB,
+  comment_id INT NOT NULL
 );
 CREATE TABLE role
 (
@@ -52,6 +59,11 @@ CREATE TABLE userfile
 );
 ALTER TABLE adv ADD FOREIGN KEY (members_idmembers) REFERENCES login (login_id) ON DELETE CASCADE ON UPDATE CASCADE;
 CREATE INDEX FK_adv ON adv (members_idmembers);
+ALTER TABLE comment ADD FOREIGN KEY (id_adv) REFERENCES adv (idapps);
+ALTER TABLE comment ADD FOREIGN KEY (id_user) REFERENCES login (login_id);
+CREATE UNIQUE INDEX unique_id_comment ON comment (id_comment);
+CREATE INDEX fk_comment_1_idx ON comment (id_adv);
+CREATE INDEX fk_comment_2_idx ON comment (id_user);
 ALTER TABLE role ADD FOREIGN KEY (login_id) REFERENCES login (login_id) ON DELETE CASCADE ON UPDATE CASCADE;
 CREATE INDEX FK_roles ON role (login_id);
 ALTER TABLE userfile ADD FOREIGN KEY (adv_id) REFERENCES adv (idapps) ON DELETE CASCADE ON UPDATE CASCADE;

@@ -1,6 +1,8 @@
 package by.baranov.sergey.Email;
 
 
+import by.baranov.sergey.Entity.User;
+
 import javax.mail.MessagingException;
 
 /**
@@ -8,5 +10,5 @@ import javax.mail.MessagingException;
  */
 public interface MailService {
 
-    void sendMail(String from, String to, String subject, String msg) throws MessagingException;
+    void sendMail(String from, String to, boolean isLogin, User user) throws MessagingException;
 }

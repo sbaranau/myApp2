@@ -2,6 +2,7 @@ package by.baranov.sergey.WebCont;
 
 
 import by.baranov.sergey.Email.MailService;
+import by.baranov.sergey.Entity.User;
 import by.baranov.sergey.Service.UserService;
 import by.baranov.sergey.UploadItem;
 import by.baranov.sergey.UserVar;
@@ -11,10 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.mail.MailSendException;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -23,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 /**
@@ -109,14 +105,10 @@ public class RegController {
                 if (userId != 0) {
 
                     //Send Email+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    User user = new User(userVar.getName(),userVar.getPassword(),userVar.getEmail(),"");
+                    user.setIdUser(userId);
                     try {
-                        mailService.sendMail("myAppadministrator", userVar.getEmail(), "Registration information", "Congratulations!!!!! \n\n " +
-                                "Hello dear" + userVar.getName() + "\n\n Your registration at myApp successful! \n " +
-                                "Your login - " + userVar.getName() +
-                                "\n your password -" + userVar.getPassword() +
-                                "\n your can edit after confirm email" +
-                                "\n <a href=\"http://localhost:8080/myApp/confirm.do?id=" + userId +
-                                "\">Confirm you e-mail</a>");
+                        mailService.sendMail("myAppadministrator", userVar.getEmail(), true, user);
                     } catch (MailSendException exception) {
                         LOG.debug("!!!!Error sending letter");
                         exception.printStackTrace();

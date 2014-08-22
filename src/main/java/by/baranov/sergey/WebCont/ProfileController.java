@@ -153,11 +153,8 @@ public class ProfileController {
             LOG.debug("change profile in DB");
             model.addAttribute("action", "update Profile");
             userService.updateProfile(userUpdate);
-
             try {
-                mailService.sendMail("MyAppAdmin", userUpdate.getEmail(), "Change profile", "U change your " +
-                        "registration data: \n Your LOGIN:  " + userUpdate.getUsername() + "\n Your PASSWORD:  " +
-                        userUpdate.getPassword());
+                mailService.sendMail("MyAppAdmin", userUpdate.getEmail(), false, userUpdate);
             } catch (MailSendException exception) {
                 LOG.warn("Error sending letter with new pass");
                 exception.printStackTrace();
