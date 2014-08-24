@@ -40,8 +40,7 @@ CREATE TABLE login
   enabled TINYINT NOT NULL,
   email VARCHAR(50) NOT NULL,
   avatar LONGTEXT,
-  picture LONGBLOB,
-  comment_id INT NOT NULL
+  picture LONGBLOB
 );
 CREATE TABLE role
 (
