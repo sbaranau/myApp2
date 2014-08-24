@@ -54,6 +54,7 @@ public class ViewController {
         model.addAttribute("Views", adv.getViews());
         model.addAttribute("Author", adv.getUser().getUsername());
         model.addAttribute("AdId", adv.getIdAdv());
+        model.addAttribute("Comments", adv.getComments());
 
         if (!(adv.getPicture() == null)) {
 

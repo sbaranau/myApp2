@@ -3,13 +3,16 @@ package by.baranov.sergey.Entity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 /**
  *TODO
  */
 @Entity
 @Table(name = "adv")
-public class Adv {
+public class Adv implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idapps")
@@ -35,9 +38,16 @@ public class Adv {
     @Column(name = "picture")
     private String picture;
 
+    @Column(name = "comments")
+    private int comments;
+
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinColumn(name = "members_idmembers")
     private User user;
+
+    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_adv")
+    private List<Comment> comment;
 
     public Adv() {
     }
@@ -49,7 +59,7 @@ public class Adv {
         this.text = text;
     }
 
-    public Adv(Long idAdv, String date, String title, Long views, String text, String activity, String picture, User user) {
+    public Adv(Long idAdv, String date, String title, Long views, String text, String activity, String picture, User user, List<Comment> comment) {
         this.idAdv = idAdv;
         this.date = date;
         this.title = title;
@@ -58,6 +68,7 @@ public class Adv {
         this.activity = activity;
         this.picture = picture;
         this.user = user;
+        this.comment = comment;
     }
 
     public Adv(String date, String title, Long views, User user, String text, String picture) {
@@ -135,5 +146,21 @@ public class Adv {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public int getComments() {
+        return comments;
+    }
+
+    public void setComments(int comments) {
+        this.comments = comments;
+    }
+
+    public List<Comment> getComment() {
+        return comment;
+    }
+
+    public void setComment(List<Comment> comment) {
+        this.comment = comment;
     }
 }

@@ -18,8 +18,8 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="sessionFactory" value="dataSource" />
-          <unit-entry name="sessionFactoryTest" value="dataSource" />
+          <unit-entry name="sessionFactory" value="c60bb1b0-8a57-49c7-9dd0-590c8095d8fd" />
+          <unit-entry name="sessionFactoryTest" value="c60bb1b0-8a57-49c7-9dd0-590c8095d8fd" />
           <unit-entry name="src:main:webapp:WEB-INF:resources:hibernate.cfg.xml" />
         </datasource-map>
         <naming-strategy-map />

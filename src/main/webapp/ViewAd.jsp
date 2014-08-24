@@ -59,7 +59,23 @@
                 </tr>
             </c:if>
         </c:forEach>
+    <tr>
+        <c:forEach items="${Comments}" var="comment" varStatus="roll">
+        <td>
+          <table>
+              <tr>
+                  <td>
+                      ${comment}
+                  </td>
+              </tr>
+          </table>
 
+
+        </td>
+        <c:if test="${roll.count % 5 == 0}">
+        </c:if>
+        </c:forEach>
+    </tr>
     </table>
     <div class="clear" align="right"></div>
     <br/>

@@ -23,6 +23,7 @@ CREATE TABLE adv
   activity VARCHAR(4) NOT NULL,
   picture LONGTEXT,
   members_idmembers INT UNSIGNED NOT NULL,
+  comments INT DEFAULT 0 NOT NULL,
   PRIMARY KEY (idapps, members_idmembers)
 );
 CREATE TABLE comment
