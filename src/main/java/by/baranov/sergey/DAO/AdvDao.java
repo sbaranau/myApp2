@@ -19,4 +19,8 @@ public interface AdvDao {
     public String update(Adv adv);
 
     public boolean delete(Adv adv);
+
+    public int getCommentCount(long advId);
+
+    public boolean increaseCommentCount(long advId);
 }

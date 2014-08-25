@@ -25,10 +25,10 @@ import java.io.InputStream;
 public class ShowPicController {
 
     @Autowired
-    UserFileService userFileService;
+    private UserFileService userFileService;
 
     @Autowired
-    AdvService advService;
+    private AdvService advService;
 
     @Autowired
     private UserService userService;

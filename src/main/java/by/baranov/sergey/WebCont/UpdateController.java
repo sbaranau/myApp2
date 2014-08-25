@@ -25,10 +25,10 @@ import java.util.regex.Pattern;
 @Controller
 public class UpdateController {
     @Autowired
-    AdvService advService;
+    private AdvService advService;
 
     @Autowired
-    UserFileService userFileService;
+    private UserFileService userFileService;
 
     Adv adv;
     String[] pictures;

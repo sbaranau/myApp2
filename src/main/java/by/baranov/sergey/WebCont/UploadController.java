@@ -24,10 +24,10 @@ import java.io.IOException;
 public class UploadController {
 
     @Autowired
-    AdvService advService;
+    private AdvService advService;
 
     @Autowired
-    UserFileService userFileService;
+    private UserFileService userFileService;
 
     private static final int FILE_MAX_SIZE = 1048576;    //set file max size in byte
 

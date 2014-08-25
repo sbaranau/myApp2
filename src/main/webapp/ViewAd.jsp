@@ -60,20 +60,17 @@
             </c:if>
         </c:forEach>
     <tr>
+        1
         <c:forEach items="${Comments}" var="comment" varStatus="roll">
         <td>
           <table>
               <tr>
                   <td>
-                      ${comment}
+                      ${comment.commentText}
                   </td>
               </tr>
           </table>
-
-
         </td>
-        <c:if test="${roll.count % 5 == 0}">
-        </c:if>
         </c:forEach>
     </tr>
     </table>

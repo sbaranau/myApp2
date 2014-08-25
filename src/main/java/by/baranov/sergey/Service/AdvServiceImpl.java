@@ -19,7 +19,7 @@ public class AdvServiceImpl implements AdvService {
     private static final Logger LOG = LoggerFactory.getLogger(AdvServiceImpl.class);
 
     @Autowired
-    AdvDao advDao;
+    private AdvDao advDao;
 
     @Transactional
     public int getNumbersOfAdvs() {

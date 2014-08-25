@@ -117,7 +117,7 @@
 
                         </td>
                         <td>
-                                ${parameter.comments}
+                                ${parameter.commentsCount}
                         </td>
                         <td>
                             <c:if test="${parameter.picture ne null}">

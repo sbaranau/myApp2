@@ -24,12 +24,12 @@ import java.util.Formatter;
  * TODO
  */
 @Controller
-public class AddController {
+public class AdvAddController {
 
     @Autowired
     private AdvService advService;
 
-    private static final Logger LOG = LoggerFactory.getLogger(AddController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AdvAddController.class);
 
     @RequestMapping(value = "/Create.do", method = RequestMethod.GET)
     public String showCreateForm(ModelMap model) {

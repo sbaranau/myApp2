@@ -118,4 +118,16 @@ public class AdvDaoImpl implements AdvDao {
         return true;
     }
 
+    @Override
+    public int getCommentCount(long advId) {
+        return 0;
+    }
+
+    @Override
+    public boolean increaseCommentCount(long advId) {
+        Adv adv = findById(advId);
+        adv.setCommentsCount(adv.getCommentsCount() + 1);
+        return "ok".equals(update(adv));
+    }
+
 }

@@ -2,6 +2,7 @@ package by.baranov.sergey.WebCont;
 
 import by.baranov.sergey.Entity.Adv;
 import by.baranov.sergey.Service.AdvService;
+import by.baranov.sergey.Service.CommentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,14 @@ import java.util.regex.Pattern;
  * TODO
  */
 @Controller
-public class ViewController {
+public class ViewAdvController {
     @Autowired
     private AdvService advService;
 
-    private static final Logger LOG = LoggerFactory.getLogger(ViewController.class);
+    @Autowired
+    private CommentService commentService;
+
+    private static final Logger LOG = LoggerFactory.getLogger(ViewAdvController.class);
 
     @RequestMapping(value = "/ViewAd.do")
     public final String viewAdvForm(HttpServletRequest request, HttpServletResponse response, Model model)
@@ -54,7 +58,8 @@ public class ViewController {
         model.addAttribute("Views", adv.getViews());
         model.addAttribute("Author", adv.getUser().getUsername());
         model.addAttribute("AdId", adv.getIdAdv());
-        model.addAttribute("Comments", adv.getComments());
+        model.addAttribute("CommentCount", adv.getCommentsCount());
+        model.addAttribute("Comments",commentService.getComments(adv.getIdAdv()));
 
         if (!(adv.getPicture() == null)) {
 

@@ -28,10 +28,10 @@ public class ProfileController {
     private UserService userService;
 
     @Autowired
-    AdvService advService;
+    private AdvService advService;
 
     @Autowired
-    MailService mailService;
+    private MailService mailService;
 
     private static final Logger LOG = LoggerFactory.getLogger(ProfileController.class);
 

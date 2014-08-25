@@ -10,32 +10,36 @@ import java.io.Serializable;
 @Table(name = "comment")
 public class Comment implements Serializable{
 
+    private static final long serialVersionUID = 5924361831551833717L;
+
+
     @Id
     @Column(name = "id_comment")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int commentId;
+    private int commentId;
 
     @Column(name = "text")
-    String commentText;
+    private String commentText;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user")
-    User user;
+    @Column(name = "id_user")
+    private int userId;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_adv")
-    Adv adv;
+  /*  @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user",insertable=false, updatable=false,
+    nullable=false)
+    private User user;*/
+
+  //  @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+  //  @JoinColumn(name = "id_adv",insertable=false, updatable=false,
+  //          nullable=false)
+   // public Adv advs;
+
+    @Column(name = "id_adv")
+    private long advId;
 
     public Comment() {
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public int getCommentId() {
         return commentId;
@@ -53,11 +57,19 @@ public class Comment implements Serializable{
         this.commentText = commentText;
     }
 
-    public Adv getAdv() {
-        return adv;
+    public long getAdvId() {
+        return advId;
     }
 
-    public void setAdv(Adv adv) {
-        this.adv = adv;
+    public void setAdvId(long advId) {
+        this.advId = advId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

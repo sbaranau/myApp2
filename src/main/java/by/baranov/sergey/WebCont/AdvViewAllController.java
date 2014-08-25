@@ -23,15 +23,15 @@ import java.util.List;
 
 
 @Controller
-public class AdvController {
+public class AdvViewAllController {
 
     @Autowired
-    AdvService advService;
+    private AdvService advService;
 
     @Autowired
     private UserService userService;
 
-    private static final Logger LOG = LoggerFactory.getLogger(AdvController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AdvViewAllController.class);
 
     @RequestMapping(value = "/Home.do")
     public final ModelAndView showMainForm(HttpServletRequest request, HttpSession session, Principal principal)

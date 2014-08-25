@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ConfirmEmailController {
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
-@RequestMapping(value = "/confirm.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/confirm.do", method = RequestMethod.GET)
     public String confirmEmail( Model model, HttpServletRequest request){
     String id = request.getParameter("id");
     LOG.debug("Confirm user with id=" + id);

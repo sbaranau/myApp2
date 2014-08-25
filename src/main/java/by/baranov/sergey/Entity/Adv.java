@@ -4,7 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -13,41 +13,117 @@ import java.util.Set;
 @Entity
 @Table(name = "adv")
 public class Adv implements Serializable {
+
+    private Long idAdv;
+    private String date;
+    private String title;
+    private Long views;
+    private String text;
+    private String activity;
+    private String picture;
+    private int commentsCount;
+    private User user;
+    private Set<Comment> comments = new HashSet<>(0);
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idapps")
-    private Long idAdv;
+    public Long getIdAdv() {
+        return this.idAdv;
+    }
+
+    public void setIdAdv(Long idAdv) {
+        this.idAdv = idAdv;
+    }
+
     @Column(name = "date")
-    private String date;
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     @Column(name = "title")
     @NotEmpty(message = "Title can't be empty")
-    private String title;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     @Column(name = "views")
-    private Long views;
+    public Long getViews() {
+        return views;
+    }
+
+    public void setViews(Long views) {
+        this.views = views;
+    }
 
     @Column(name = "text")
     @NotEmpty(message = "Text can't be empty")
-    private String text;
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
 
     @Column(name = "activity")
     @NotEmpty(message = "you should select action!")
-    private String activity;
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
 
     @Column(name = "picture")
-    private String picture;
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
     @Column(name = "comments")
-    private int comments;
+    public int getCommentsCount() {
+        return commentsCount;
+    }
+
+    public void setCommentsCount(int commentsCount) {
+        this.commentsCount = commentsCount;
+    }
 
     @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinColumn(name = "members_idmembers")
-    private User user;
+    public User getUser() {
+        return user;
+    }
 
-    @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_adv")
-    private List<Comment> comment;
+    public void setUser(User user) {
+        this.user = user;
+    }
+//todo
+  /* @OneToMany(cascade={CascadeType.ALL})
+   @JoinColumn(name="id_adv")
+
+  //  @OneToMany(fetch = FetchType.LAZY, mappedBy = "advs")
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }*/
 
     public Adv() {
     }
@@ -59,17 +135,6 @@ public class Adv implements Serializable {
         this.text = text;
     }
 
-    public Adv(Long idAdv, String date, String title, Long views, String text, String activity, String picture, User user, List<Comment> comment) {
-        this.idAdv = idAdv;
-        this.date = date;
-        this.title = title;
-        this.views = views;
-        this.text = text;
-        this.activity = activity;
-        this.picture = picture;
-        this.user = user;
-        this.comment = comment;
-    }
 
     public Adv(String date, String title, Long views, User user, String text, String picture) {
         this.date = date;
@@ -82,85 +147,5 @@ public class Adv implements Serializable {
 
     public Adv(Long idAdv) {
         this.idAdv = idAdv;
-    }
-
-    public Long getIdAdv() {
-        return idAdv;
-    }
-
-    public void setIdAdv(Long idAdv) {
-        this.idAdv = idAdv;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Long getViews() {
-        return views;
-    }
-
-    public void setViews(Long views) {
-        this.views = views;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getActivity() {
-        return activity;
-    }
-
-    public void setActivity(String activity) {
-        this.activity = activity;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
-    public int getComments() {
-        return comments;
-    }
-
-    public void setComments(int comments) {
-        this.comments = comments;
-    }
-
-    public List<Comment> getComment() {
-        return comment;
-    }
-
-    public void setComment(List<Comment> comment) {
-        this.comment = comment;
     }
 }

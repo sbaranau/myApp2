@@ -23,7 +23,7 @@ public class AdvServiceTest {
         };
 
         AdvServiceImpl advService = new AdvServiceImpl();
-        advService.advDao = advDaoTest;
+      //  advService.advDao = advDaoTest;
 
         // Viewing with user who didn't create this adv
         Adv adv1 = advService.viewAdv(1L, 101L);

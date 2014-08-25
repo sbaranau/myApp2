@@ -20,10 +20,10 @@ public class UserFileServiceImpl implements UserFileService {
 
     @Autowired
     @Qualifier("fileDaoImplSQL")
-    FileDao fileDao;
+    private FileDao fileDao;
 
     @Autowired
-    AdvService advService;
+    private AdvService advService;
 
     private static final Logger LOG = LoggerFactory.getLogger(UserFileServiceImpl.class);
 

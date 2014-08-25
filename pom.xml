@@ -95,18 +95,18 @@
             <version>${mysql.connector-version}</version>
         </dependency>
 
-        <!-- Roo dependencies -->
+        <!-- Roo dependencies
         <dependency>
             <groupId>javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.8.0.GA</version>
+            <version>3.12.1.GA</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.roo</groupId>
             <artifactId>org.springframework.roo.annotations</artifactId>
             <version>${org.springframework.roo-version}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
         <!-- AspectJ -->
         <dependency>
