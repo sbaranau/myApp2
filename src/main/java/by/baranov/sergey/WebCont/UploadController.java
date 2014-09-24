@@ -121,7 +121,7 @@ public class UploadController {
     public String endUpload(ModelMap model, HttpServletRequest request) {
         LOG.debug("End of uploading files");
         HttpSession session = request.getSession();
-        Long advId = Long.parseLong(String.valueOf(session.getAttribute("AdId")));
+        int advId = Integer.parseInt(String.valueOf(session.getAttribute("AdId")));
 
         if (!"".equals(request.getParameter("pics")) && (request.getParameter("pics") != null)) {    //if some file were upload
             Adv adv = advService.viewAdv(Long.parseLong(String.valueOf(session.getAttribute("UserId"))), advId);                                                   //save there names

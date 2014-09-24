@@ -12,7 +12,7 @@ public class AdvServiceTest {
     public void testViewAdv() {
         AdvDao advDaoTest = new AdvDaoImpl() {
             @Override
-            public Adv findById(Long advId) {
+            public Adv findById(int advId) {
                 Adv adv = new Adv();
                 adv.setViews(0L);
                 User user = new User(2L);
@@ -26,11 +26,11 @@ public class AdvServiceTest {
       //  advService.advDao = advDaoTest;
 
         // Viewing with user who didn't create this adv
-        Adv adv1 = advService.viewAdv(1L, 101L);
+        Adv adv1 = advService.viewAdv(1L, 101);
         Assert.assertEquals(adv1.getViews(), (Long) 1L);
 
         // Viewing with user who created this adv
-        Adv adv2 = advService.viewAdv(2L, 101L);
+        Adv adv2 = advService.viewAdv(2L, 101);
         Assert.assertEquals(adv2.getViews(), (Long) 0L);
     }
 }

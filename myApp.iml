@@ -18,9 +18,9 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="sessionFactory" value="c60bb1b0-8a57-49c7-9dd0-590c8095d8fd" />
-          <unit-entry name="sessionFactoryTest" value="c60bb1b0-8a57-49c7-9dd0-590c8095d8fd" />
-          <unit-entry name="src:main:webapp:WEB-INF:resources:hibernate.cfg.xml" />
+          <unit-entry name="sessionFactory" value="a3e56db9-7a36-4ab8-9727-49e18d3500dc" />
+          <unit-entry name="sessionFactoryTest" value="a3e56db9-7a36-4ab8-9727-49e18d3500dc" />
+          <unit-entry name="src:main:webapp:WEB-INF:resources:hibernate.cfg.xml" value="a3e56db9-7a36-4ab8-9727-49e18d3500dc" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/resources/hibernate.cfg.xml" />
@@ -89,8 +89,6 @@
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.5.10" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.32" level="project" />
-    <orderEntry type="library" name="Maven: javassist:javassist:3.8.0.GA" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.springframework.roo:org.springframework.roo.annotations:1.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:jcl-over-slf4j:1.5.10" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-log4j12:1.5.10" level="project" />

@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public interface CommentService {
 
-    public Long addComment(Comment comment);
+    public int addComment(Comment comment);
 
     public void deleteComment(int userId, int advId);
 
-    public List<Comment> getComments(long advId);
+    public List<Comment> getComments(int advId);
 }

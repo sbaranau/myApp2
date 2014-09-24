@@ -41,6 +41,17 @@ public class User {
     @Column(name = "picture")
     private byte[] picture;
 
+/*
+    private Set<Comment> comments = new HashSet<>(0);
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }*/
+
     public String getPassword() {
         return password;
     }

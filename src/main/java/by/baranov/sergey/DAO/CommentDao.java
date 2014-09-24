@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface CommentDao {
 
-    public List<Comment> getComments(long advId);
+    public List<Comment> getComments(int advId);
 
-    public Long addCommtent(Comment comment);
+    public int addComment(Comment comment);
 
     public void removeComment(int userId, int advId);
 

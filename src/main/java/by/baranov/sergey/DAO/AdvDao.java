@@ -10,17 +10,17 @@ public interface AdvDao {
 
     public int getQuantity();
 
-    public Adv findById(Long advId);
+    public Adv findById(int advId);
 
     public List<Adv> getAll(int pageToGet, int numPerPage);
 
-    public Long add(Adv adv);
+    public int add(Adv adv);
 
     public String update(Adv adv);
 
     public boolean delete(Adv adv);
 
-    public int getCommentCount(long advId);
+    public int getCommentCount(int advId);
 
-    public boolean increaseCommentCount(long advId);
+    public boolean increaseCommentCount(int advId);
 }

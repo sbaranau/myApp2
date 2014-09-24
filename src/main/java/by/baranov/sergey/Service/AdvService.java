@@ -11,9 +11,9 @@ public interface AdvService {
 
     public int getNumbersOfAdvs();
 
-    public Long addAdv(Adv adv);
+    public int addAdv(Adv adv);
 
-    public Adv viewAdv(Long idUser, Long idAdv);
+    public Adv viewAdv(Long idUser, int idAdv);
 
     public List<Adv> getAdvs(int pageToGet, int numberOfAdvsOnPage);
 

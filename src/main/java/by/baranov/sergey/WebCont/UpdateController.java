@@ -51,7 +51,7 @@ public class UpdateController {
         }
         model.addAttribute("Back", ("Home.do?page=" + request.getParameter("page")));
         try {
-            adv = advService.viewAdv(idUser, Long.parseLong(request.getParameter("AdId")));
+            adv = advService.viewAdv(idUser, Integer.parseInt(request.getParameter("AdId")));
         } catch (NullPointerException exp) {
             return "Error";
         }

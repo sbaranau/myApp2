@@ -41,9 +41,9 @@ public class AdvDaoImpl implements AdvDao {
      * @return id of new adv
      */
     @Override
-    public Long add(Adv adv) {             // add adv in the DB
+    public int add(Adv adv) {             // add adv in the DB
         LOG.debug("Adding adv");
-        return (Long) sessionFactory.getCurrentSession().save(adv);
+        return (int) sessionFactory.getCurrentSession().save(adv);
     }
 
     /**
@@ -53,7 +53,7 @@ public class AdvDaoImpl implements AdvDao {
      * @return Adv
      */
     @Override
-    public Adv findById(Long advId) {
+    public Adv findById(int advId) {
         LOG.debug("find Adv By Ip dao");
         return (Adv) sessionFactory.getCurrentSession().get(Adv.class, advId);
     }
@@ -119,12 +119,12 @@ public class AdvDaoImpl implements AdvDao {
     }
 
     @Override
-    public int getCommentCount(long advId) {
+    public int getCommentCount(int advId) {
         return 0;
     }
 
     @Override
-    public boolean increaseCommentCount(long advId) {
+    public boolean increaseCommentCount(int advId) {
         Adv adv = findById(advId);
         adv.setCommentsCount(adv.getCommentsCount() + 1);
         return "ok".equals(update(adv));

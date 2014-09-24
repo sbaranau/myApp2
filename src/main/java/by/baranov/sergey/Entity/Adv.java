@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "adv")
 public class Adv implements Serializable {
 
-    private Long idAdv;
+    private int idAdv;
     private String date;
     private String title;
     private Long views;
@@ -28,11 +28,11 @@ public class Adv implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idapps")
-    public Long getIdAdv() {
+    public int getIdAdv() {
         return this.idAdv;
     }
 
-    public void setIdAdv(Long idAdv) {
+    public void setIdAdv(int idAdv) {
         this.idAdv = idAdv;
     }
 
@@ -112,18 +112,18 @@ public class Adv implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-//todo
-  /* @OneToMany(cascade={CascadeType.ALL})
-   @JoinColumn(name="id_adv")
+    //todo
+    /* @OneToMany(cascade={CascadeType.ALL})
+   @JoinColumn(name="id_adv")*/
 
-  //  @OneToMany(fetch = FetchType.LAZY, mappedBy = "advs")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "advs")
     public Set<Comment> getComments() {
         return comments;
     }
 
     public void setComments(Set<Comment> comments) {
         this.comments = comments;
-    }*/
+    }
 
     public Adv() {
     }
@@ -145,7 +145,7 @@ public class Adv implements Serializable {
         this.picture = picture;
     }
 
-    public Adv(Long idAdv) {
+    public Adv(int idAdv) {
         this.idAdv = idAdv;
     }
 }

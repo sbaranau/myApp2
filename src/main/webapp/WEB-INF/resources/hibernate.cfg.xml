@@ -9,5 +9,6 @@
         <mapping class="by.baranov.sergey.Entity.Adv"/>
         <mapping class="by.baranov.sergey.Entity.Role"/>
         <mapping class="by.baranov.sergey.Entity.UserFile"/>
+        <mapping class="by.baranov.sergey.Entity.Comment"/>
     </session-factory>
 </hibernate-configuration>

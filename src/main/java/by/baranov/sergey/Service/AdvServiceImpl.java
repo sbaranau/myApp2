@@ -28,13 +28,13 @@ public class AdvServiceImpl implements AdvService {
     }
 
     @Transactional
-    public Long addAdv(Adv adv) {
+    public int addAdv(Adv adv) {
         LOG.debug("add adv: Advs Service");
         return advDao.add(adv);
     }
 
     @Transactional
-    public Adv viewAdv(Long idUser, Long idAdv) {
+    public Adv viewAdv(Long idUser, int idAdv) {
         LOG.debug("get adv: Advs Service");
         Adv adv = advDao.findById(idAdv);
 

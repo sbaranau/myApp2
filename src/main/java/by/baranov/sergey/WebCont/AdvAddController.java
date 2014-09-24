@@ -72,7 +72,7 @@ public class AdvAddController {
             adToAdd.setDate(format.toString());
             adToAdd.setPicture(null);                    //as default - no attachment
 
-            Long advId = advService.addAdv(adToAdd);   //get error from method add
+            int advId = advService.addAdv(adToAdd);   //get error from method add
             if (advId == 0) {
                 LOG.warn("Avd doesn't create!!");
                 model.addAttribute("error", "true");

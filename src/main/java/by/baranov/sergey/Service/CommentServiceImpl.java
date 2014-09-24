@@ -20,13 +20,8 @@ public class CommentServiceImpl implements CommentService {
     private AdvDao advDao;
 
     @Override
-    public Long addComment(Comment comment) {
-
-        Long id = commentDao.addCommtent(comment);
-        if (id >0) {
-            advDao.increaseCommentCount(comment.getAdvId());
-        }
-        return id;
+    public int addComment(Comment comment) {
+        return commentDao.addComment(comment);
     }
 
     @Override
@@ -35,7 +30,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> getComments(long advId) {
+    public List<Comment> getComments(int advId) {
         return commentDao.getComments(advId);
     }
 }

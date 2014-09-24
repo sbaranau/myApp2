@@ -24,20 +24,27 @@ public class Comment implements Serializable{
     @Column(name = "id_user")
     private int userId;
 
-  /*  @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @Column(name = "id_adv")
+    private int advId;
+
+    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_user",insertable=false, updatable=false,
     nullable=false)
-    private User user;*/
+    private User user;
 
-  //  @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
-  //  @JoinColumn(name = "id_adv",insertable=false, updatable=false,
-  //          nullable=false)
-   // public Adv advs;
+    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_adv",insertable=false, updatable=false,
+            nullable=false)
+    private Adv advs;
 
-    @Column(name = "id_adv")
-    private long advId;
+
 
     public Comment() {
+    }
+
+    public Comment(int user, int adv) {
+        this.userId = user;
+        this.advId = adv;
     }
 
 
@@ -57,11 +64,11 @@ public class Comment implements Serializable{
         this.commentText = commentText;
     }
 
-    public long getAdvId() {
+    public int getAdvId() {
         return advId;
     }
 
-    public void setAdvId(long advId) {
+    public void setAdvId(int advId) {
         this.advId = advId;
     }
 
@@ -71,5 +78,21 @@ public class Comment implements Serializable{
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Adv getAdvs() {
+        return advs;
+    }
+
+    public void setAdvs(Adv advs) {
+        this.advs = advs;
     }
 }

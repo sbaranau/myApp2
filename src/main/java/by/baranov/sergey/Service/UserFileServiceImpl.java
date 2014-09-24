@@ -45,7 +45,7 @@ public class UserFileServiceImpl implements UserFileService {
         userFile.setFile(file.getBytes());
         userFile.setFilename(file.getOriginalFilename());
         userFile.setFiletype(file.getContentType());
-        userFile.setAdv(new Adv(Long.parseLong(adId)));
+        userFile.setAdv(new Adv(Integer.parseInt(adId)));
 
         return (fileDao.upload(userFile, userName) != 0);
 
