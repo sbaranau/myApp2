@@ -62,9 +62,9 @@
         </c:forEach>
     </table>
 
-    <table style="width: 450px; margin-left: 20%; margin-top: 15%">
+    <table style="width: 450px; margin-left: 20%;">
         <tr>
-            <td colspan="2"><spring:message code="label.Comments"/></td>
+            <td colspan="2" style="font-style: italic;"><spring:message code="label.Comments"/></td>
         </tr>
 
         <c:forEach items="${Adv.comments}" var="comment" varStatus="roll">
@@ -75,7 +75,14 @@
                 <td>
                         ${comment.commentText}
                 </td>
+
             </tr>
+            <tr>
+                <td colspan="2">
+                    <hr>
+                </td>
+            </tr>
+            <br/>
         </c:forEach>
 
         <c:if test="${sessionScope.UserName ne null}">

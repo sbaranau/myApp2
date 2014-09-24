@@ -1,6 +1,7 @@
 package by.baranov.sergey.DAO;
 
 import by.baranov.sergey.Entity.Adv;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.slf4j.Logger;
@@ -69,7 +70,7 @@ public class AdvDaoImpl implements AdvDao {
     @Override
     public List<Adv> getAll(int pageNumber, int quantityOnPage) {
         LOG.debug("In findAll dao");
-        List<Adv> listOfAdvs = sessionFactory.getCurrentSession().createCriteria(Adv.class).setFirstResult((pageNumber - 1) * quantityOnPage).
+        List<Adv> listOfAdvs = sessionFactory.getCurrentSession().createCriteria(Adv.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).setFirstResult((pageNumber - 1) * quantityOnPage).
                 setMaxResults(quantityOnPage).addOrder(Order.desc("idAdv")).list();
         /*
         another variant !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
